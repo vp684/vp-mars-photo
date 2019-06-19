@@ -1,0 +1,20 @@
+
+
+.home-container{
+   text-align: center;    
+   margin: 50px;
+   
+}
+
+.search-input{
+   height: 20;
+   margin: 10px
+}
+
+.camera-list{
+   margin: 10px
+}
+
+.find-button{
+   margin: 10px
+}
