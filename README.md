@@ -1,11 +1,7 @@
 ## Mars Rover Photo API
 
-A mars rover photo app deployed to heroku. https://vp-mars-photo.herokuapp.com
-retrieves images from NASA Mars Rover Photos API by Sol day and rover camera.
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+A mars rover photo app deployed to heroku: https://vp-mars-photo.herokuapp.com.
+Retrieves and displays images from NASA Mars Rover Photos API by Sol day and rover camera.
 
 ## Environment Variables
 
@@ -16,3 +12,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 #### NASA URL
     Base api url for backend set to https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/photos?
+    
+    
+## Other
+This app uses an API provided by https://github.com/chrisccerami/mars-photo-api    
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
