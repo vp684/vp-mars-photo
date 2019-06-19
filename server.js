@@ -41,6 +41,7 @@ app.post('/api/search', (req, res) => {
             res.send(body)
         })
     } else {
+        console.log({photos: []})
         res.send({photos: []})
     }
 })
