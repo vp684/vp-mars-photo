@@ -8,7 +8,7 @@ class SearchView extends React.Component {
 
     state = {
         searchvalue: '',
-        cameravalue: "fhaz",
+        cameravalue: "FHAZ",
         photosProp: {
             photos: [],
             message: 'No photos to display'    
@@ -52,7 +52,7 @@ class SearchView extends React.Component {
                 if (data.photos.length > 0) {
                     this.setState({ photosProp: { photos: data.photos.map(item => item.img_src), message: '' } })
                 } else { 
-                    this.setState({ photosProp: { photos: [], message: 'No photos to display' } })
+                    this.setState({ photosProp: { photos: [], message: 'No photos to display on Sol ' + this.state.searchvalue + ' from ' + this.state.cameravalue } })
                 }                                      
             })
         }        
@@ -67,15 +67,15 @@ class SearchView extends React.Component {
                         <input type="text" name='search' className="search-input" placeholder="Sol Number" autoComplete="off" value={this.state.searchvalue} onChange={this.handleSearchChange} />
                         Camera: 
                         <select onChange={this.handleCameraChange} className="camera-list">
-                            <option value="fhaz">FHAZ</option>
-                            <option value="rhaz">RHAZ</option>                   	
-                            <option value="mast">MAST</option>                    	
-                            <option value="chemcam">CHEMCAM</option>                    	
-                            <option value="mahli">MAHLI</option>
-                            <option value="mardi">MARDI</option>                    	
-                            <option value="navcam">NAVCAM</option>                    	
-                            <option value="pancam">PANCAM</option>                    	
-                            <option value="minites">MINITES</option>                    	                  
+                            <option value="FHAZ">FHAZ</option>
+                            <option value="RHAZ">RHAZ</option>                   	
+                            <option value="MAST">MAST</option>                    	
+                            <option value="CHEMCAM">CHEMCAM</option>                    	
+                            <option value="MAHLI">MAHLI</option>
+                            <option value="MARDI">MARDI</option>                    	
+                            <option value="NAVCAM">NAVCAM</option>                    	
+                            <option value="PANCAM">PANCAM</option>                    	
+                            <option value="MINITES">MINITES</option>                    	                  
                         </select>      
                         <button type="submit" className="find-button" value="Submit" onClick={this.handleSearchSubmit}>Find Photos</button>                   
                     </form>

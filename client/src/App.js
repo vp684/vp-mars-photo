@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Mars Rover Photo Viewer</h1>
+      <h1>Mars Photo API</h1>
       <SearchView/>     
     </div>
   );

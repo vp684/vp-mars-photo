@@ -32,12 +32,12 @@ const app = express();
 
 
 
-var corsOption = {
-    origin: "*",
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',   
-};
-//use cors
-app.use(cors(corsOption))
+// var corsOption = {
+//     origin: "*",
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',   
+// };
+// //use cors
+// app.use(cors(corsOption))
 
 //use helmet defaults
 app.use(helmet())
@@ -51,16 +51,18 @@ if (process.env.NODE_ENV === 'production') {
         
 }
 
-//only one route
+//only API one route
 app.post('/api/search', (req, res) => {   
- 
-    let url = NASAUrl + 'sol=' + req.body.searchvalue + '&camera=' + req.body.cameravalue
-    request(url, { json: true }, (err, response, body) => {
-        if (err) return res.send({ error: err })
-        res.send(body)
-    } )
 
-    //res.send({message:'some text here'})
+    if(req.body.searchvalue.length > 0){
+        let url = NASAUrl + 'sol=' + req.body.searchvalue + '&camera=' + req.body.cameravalue
+        request(url, { json: true }, (err, response, body) => {
+            if (err) return res.send({ error: err })
+            res.send(body)
+        })
+    } else {
+        res.send({photos: []})
+    }
 })
 
 // // Handle React routing, return all requests to React app
@@ -70,8 +72,7 @@ app.get('/*', function(req, res) {
 
 //start server
 app.listen(port, ()=>{
-    console.log(`server started on port ${port}`)
-    //api server started
+    //console.log(`server started on port ${port}`) 
 })
 
 
