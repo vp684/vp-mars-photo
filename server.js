@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client/build')))            
 }
 
-//only API one route
+//only one API route
 app.post('/api/search', (req, res) => {   
 
     if(req.body.searchvalue.length > 0){

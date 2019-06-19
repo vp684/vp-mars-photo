@@ -48,8 +48,12 @@ class SearchView extends React.Component {
                 .then((response) => {
                 return response.json()
             })
-            .then((data) => {                          
-                if (data.photos.length > 0) {
+            .then((data) => {      
+                if (data.error) {
+                    console.log(data.error)        
+                    return this.setState({ photosProp: { photos: [], message: 'API error ' } })
+                }
+                else if (data.photos.length > 0) {
                     this.setState({ photosProp: { photos: data.photos.map(item => item.img_src), message: '' } })
                 } else { 
                     this.setState({ photosProp: { photos: [], message: 'No photos to display on Sol ' + this.state.searchvalue + ' from ' + this.state.cameravalue } })
