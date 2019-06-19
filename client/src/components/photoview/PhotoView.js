@@ -11,7 +11,7 @@ class PhotoView extends React.Component {
                     
                     return (
                         <a  href={item} key={index} target="_blank" rel="noopener noreferrer">
-                            <img src={item} alt="Rover" className="photo"/>
+                            <img src={item} alt="Rover pic" className="photo"/>
                         </a>                                                       
                     )
 

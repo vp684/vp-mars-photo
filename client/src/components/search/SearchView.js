@@ -61,7 +61,7 @@ class SearchView extends React.Component {
     render() {
         return (
             <div className="main">   
-                <div className="home-container">
+                <div className="search-container">
                     <form>
                         Sol:
                         <input type="text" name='search' className="search-input" placeholder="Sol Number" autoComplete="off" value={this.state.searchvalue} onChange={this.handleSearchChange} />

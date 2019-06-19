@@ -1,20 +1,18 @@
 
-const cors = require('cors')
 const express = require('express');
 const path = require('path');
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const request = require('request')
 
-const NASAUrl = 'https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/photos?'
-
-var router
 
 //load env variables
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').load();
 }
 
+//set base API url
+const NASAUrl = process.env.NASAURL
 
 //set port
 const port = process.env.PORT
@@ -22,24 +20,7 @@ const port = process.env.PORT
 //instantiate app
 const app = express();
 
-
-//express-session  prodcution values
-// if(app.get('env') == 'production'){
-//     app.set('trust proxy', 1)
-//     sess_options.cookie.secure = true
-// }
-// app.use(cookieParser());
-
-
-
-// var corsOption = {
-//     origin: "*",
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',   
-// };
-// //use cors
-// app.use(cors(corsOption))
-
-//use helmet defaults
+//use helmet
 app.use(helmet())
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -47,8 +28,7 @@ app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
-    app.use(express.static(path.join(__dirname, 'client/build')))    
-        
+    app.use(express.static(path.join(__dirname, 'client/build')))            
 }
 
 //only API one route
@@ -74,7 +54,3 @@ app.get('/*', function(req, res) {
 app.listen(port, ()=>{
     //console.log(`server started on port ${port}`) 
 })
-
-
-
-
