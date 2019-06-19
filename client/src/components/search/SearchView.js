@@ -27,8 +27,8 @@ class SearchView extends React.Component {
         let regex = /^[0-9]*$/
 
         if (searchStr.search(regex) || searchStr === '') {
-            alert('Search must contain a Sol number only.')
             this.setState({searchvalue : ''})
+            alert('Search must contain a Sol number only.')
             return false
         }
         return true
@@ -48,8 +48,7 @@ class SearchView extends React.Component {
                 .then((response) => {
                 return response.json()
             })
-            .then((data) => {
-                console.log(data)    
+            .then((data) => {             
                 if (data.photos.length > 0) {
                     this.setState({ photosProp: { photos: data.photos.map(item => item.img_src), message: '' } })
                 } else { 
