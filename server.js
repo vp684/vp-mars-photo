@@ -37,7 +37,7 @@ app.post('/api/search', (req, res) => {
     if(req.body.searchvalue.length > 0){
         let url = NASAUrl + 'sol=' + req.body.searchvalue + '&camera=' + req.body.cameravalue
         request(url, { json: true }, (err, response, body) => {
-            if (err) return res.send({ error: err })
+            if (err) return res.send({ error: err.toString })
             res.send(body)
         })
     } else {

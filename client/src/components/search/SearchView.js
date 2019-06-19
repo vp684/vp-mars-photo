@@ -48,8 +48,7 @@ class SearchView extends React.Component {
                 .then((response) => {
                 return response.json()
             })
-            .then((data) => {           
-                console.log(data)
+            .then((data) => {                          
                 if (data.photos.length > 0) {
                     this.setState({ photosProp: { photos: data.photos.map(item => item.img_src), message: '' } })
                 } else { 
