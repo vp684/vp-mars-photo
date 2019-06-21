@@ -35,7 +35,8 @@ class SearchView extends React.Component {
     }
 
     handleSearchSubmit = event => {
-        event.preventDefault()       
+        event.preventDefault()  
+        let payload = {cameravalue: this.state.cameravalue, searchvalue: this.state.searchvalue}
         
         if (this.validateSearch(this.state.searchvalue)) {
             fetch('/api/search/', {
@@ -43,14 +44,13 @@ class SearchView extends React.Component {
                 headers: {
                     "Content-Type": "application/json"        
                 },
-                body: JSON.stringify(this.state)        
+                body: JSON.stringify(payload)        
             })
                 .then((response) => {
                 return response.json()
             })
             .then((data) => {      
-                if (data.error) {
-                    console.log(data.error)        
+                if (data.error) {  
                     return this.setState({ photosProp: { photos: [], message: 'API error ' } })
                 }
                 else if (data.photos.length > 0) {

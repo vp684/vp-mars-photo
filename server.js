@@ -40,8 +40,7 @@ app.post('/api/search', (req, res) => {
             if (err) return res.send({ error: err.toString })
             res.send(body)
         })
-    } else {
-        console.log({photos: []})
+    } else {     
         res.send({photos: []})
     }
 })
@@ -52,6 +51,6 @@ app.get('/*', function(req, res) {
 });
 
 //start server
-app.listen(port, ()=>{
-    //console.log(`server started on port ${port}`) 
+app.listen(port, () => {
+    
 })
