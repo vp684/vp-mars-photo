@@ -24,13 +24,13 @@ class SearchView extends React.Component {
     }
 
     validateSearch(searchStr) {
-        let regex = /^[0-9]*$/
+        // let regex = /^[0-9]*$/
 
-        if (searchStr.search(regex) || searchStr === '') {
-            this.setState({searchvalue : ''})
-            alert('Search must contain a Sol number only.')
-            return false
-        }
+        // if (searchStr.search(regex) || searchStr === '') {
+        //     this.setState({searchvalue : ''})
+        //     alert('Search must contain a Sol number only.')
+        //     return false
+        // }
         return true
     }
 
@@ -51,7 +51,7 @@ class SearchView extends React.Component {
             })
             .then((data) => {      
                 if (data.error) {  
-                    return this.setState({ photosProp: { photos: [], message: 'API error ' } })
+                    return this.setState({ photosProp: { photos: [], message: data.error } })
                 }
                 else if (data.photos.length > 0) {
                     this.setState({ photosProp: { photos: data.photos.map(item => item.img_src), message: '' } })

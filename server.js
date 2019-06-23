@@ -34,6 +34,13 @@ if (process.env.NODE_ENV === 'production') {
 //only one API route
 app.post('/api/search', (req, res) => {   
 
+    let regex = /^[0-9]*$/
+    let searchStr = req.body.searchvalue
+
+    if (searchStr.search(regex) || searchStr === '') {
+        return res.send({ error: 'Search must contain a Sol number only.' })
+    }
+    
     if(req.body.searchvalue.length > 0){
         let url = NASAUrl + 'sol=' + req.body.searchvalue + '&camera=' + req.body.cameravalue
         request(url, { json: true }, (err, response, body) => {
