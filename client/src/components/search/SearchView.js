@@ -24,13 +24,13 @@ class SearchView extends React.Component {
     }
 
     validateSearch(searchStr) {
-        // let regex = /^[0-9]*$/
+        let regex = /^[0-9]*$/
 
-        // if (searchStr.search(regex) || searchStr === '') {
-        //     this.setState({searchvalue : ''})
-        //     alert('Search must contain a Sol number only.')
-        //     return false
-        // }
+        if (searchStr.search(regex) || searchStr === '') {
+            this.setState({searchvalue : ''})
+            alert('Search must contain a Sol number only.')
+            return false
+        }
         return true
     }
 
