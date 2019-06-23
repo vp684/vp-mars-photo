@@ -6,8 +6,8 @@ Retrieves and displays images from NASA Mars Rover Photos API by Sol day and rov
 ## Starting Development Environment
 
 1. Clone repo
-2. `npm install` dependencies
-3. set .env variables.
+2. `npm install` dependencies 
+3. Set .env variables.
 3. `npm run dev`
 
 
