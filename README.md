@@ -14,10 +14,12 @@ Retrieves and displays images from NASA Mars Rover Photos API by Sol day and rov
 ## Server Environment Variables
 
 #### PORT
-    Port number to run back end server, should match proxy port value in client/package.json, currently on port `3005`
+
+- Port number to run back end server, should match proxy port value in client/package.json, currently on port `3005`
 
 #### NASAURL
-    Base api url for backend set to https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/photos?
+
+- Base api url for backend set to https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/photos?
     
     
 ## Other
